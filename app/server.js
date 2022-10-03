@@ -10,4 +10,8 @@ db.on('error', error => console.error(error))
 db.once('open', () => console.log('Connected to the database'))
 
 app.use(express.json())
+
+const characterController = require('./controllers/CharacterController')
+app.use('/characters', characterController)
+
 app.listen(3000, () => console.log('Server started'))
