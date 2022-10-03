@@ -14,4 +14,7 @@ app.use(express.json())
 const characterController = require('./controllers/CharacterController')
 app.use('/characters', characterController)
 
+const movieController = require('./controllers/MovieController')
+app.use('/movies', movieController)
+
 app.listen(3000, () => console.log('Server started'))
