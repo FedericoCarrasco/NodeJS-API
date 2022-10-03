@@ -14,6 +14,9 @@ app.use(express.json())
 const characterController = require('./controllers/CharacterController')
 app.use('/characters', characterController)
 
+const genreController = require('./controllers/GenreController')
+app.use('/genres', genreController)
+
 const movieController = require('./controllers/MovieController')
 app.use('/movies', movieController)
 
