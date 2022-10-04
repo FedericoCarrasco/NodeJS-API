@@ -14,9 +14,9 @@ service.post = async (genre) => {
 }
 
 service.getAll = async (queryList) => {
-    query = {}
+    const query = {}
     if (queryList.name) query.name = queryList.name
-    return await Genre.find(query)
+    return await Genre.find(query, 'name')
 }
 
 service.getById = async (id) => {
@@ -24,7 +24,7 @@ service.getById = async (id) => {
 }
 
 service.patch = async (id, newGenre) => {
-    genreToPatch = await Genre.findById(id)
+    const genreToPatch = await Genre.findById(id)
     if (newGenre.name) genreToPatch.name = newGenre.name
     if (newGenre.image) genreToPatch.image = newGenre.image
     genreToPatch.updatedAt = Date.now()
@@ -32,7 +32,7 @@ service.patch = async (id, newGenre) => {
 }
 
 service.put = async (id, newGenre) => {
-    genreToPut = await Genre.findById(id)
+    const genreToPut = await Genre.findById(id)
     genreToPut.name = newGenre.name
     genreToPut.image = newGenre.image
     genreToPut.updatedAt = Date.now()
