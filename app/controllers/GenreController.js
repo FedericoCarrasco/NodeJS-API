@@ -18,12 +18,17 @@ controller.get('/', async (req, res) => {
         genres = await service.getAll(req.query)
         res.status(200).json(genres)
     } catch (error) {
-        res.json(error)
+        res.json(error.message)
     }
 })
 
-controller.get('/:id', (req, res) => {
-    
+controller.get('/:id', async (req, res) => {
+    try {
+        genre = await service.getById(req.params.id)
+        res.json(genre)
+    } catch (error) {
+        res.json(error.message)
+    }
 })
 
 controller.patch('/:id', (req, res) => {
