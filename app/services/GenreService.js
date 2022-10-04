@@ -24,4 +24,11 @@ service.getById = async (id) => {
     return await Genre.findById(id)
 }
 
+service.patch = async (id, newGenre) => {
+    genreToPatch = await Genre.findById(id)
+    if (newGenre.name) genreToPatch.name = newGenre.name
+    if (newGenre.image) genreToPatch.image = newGenre.image
+    return await genreToPatch.save()
+}
+
 module.exports = service
