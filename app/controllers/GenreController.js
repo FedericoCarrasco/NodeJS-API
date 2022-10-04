@@ -1,15 +1,14 @@
 const express = require('express')
-const Genre = require('../models/Genre')
 const service = require('../services/GenreService')
 const controller = express.Router()
 
 controller.post('/', async (req, res) => {
     // Genre.remove({}, () => 'all removed')
     try {
-        newGenre = await service.create(req.body)
+        newGenre = await service.post(req.body)
         res.status(201).json(newGenre)
     } catch (error) {
-        res.status(400).json(error.message)
+        res.json(error.message)
     }
 })
 

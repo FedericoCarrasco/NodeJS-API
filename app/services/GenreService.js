@@ -1,14 +1,13 @@
 const Genre = require("../models/Genre")
 const service = {}
 
-service.create = async (genre) => {
+service.post = async (genre) => {
     const newGenre = new Genre({
         name: genre.name,
         image: genre.image
     })
     try {
-        const savedGenre = await newGenre.save()
-        return savedGenre
+        return await newGenre.save()
     } catch (error) {
         throw new Error(error.message)
     }
