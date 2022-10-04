@@ -29,8 +29,13 @@ controller.get('/:id', async (req, res) => {
     }
 })
 
-controller.patch('/:id', (req, res) => {
-    
+controller.patch('/:id', async (req, res) => {
+    try {
+        character = await service.patch(req.params.id, req.body)
+        res.json(character)
+    } catch (error) {
+        res.json(error.message)
+    }
 })
 
 controller.put('/:id', (req, res) => {

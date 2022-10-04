@@ -31,4 +31,16 @@ service.getById = async (id) => {
     return await Character.findById(id, 'name image age weight story')
 }
 
+service.patch = async (id, newCharacter) => {
+    const characterToPatch = await Character.findById(id)
+    if (newCharacter.name) characterToPatch.name = newCharacter.name
+    if (newCharacter.image) characterToPatch.image = newCharacter.image
+    if (newCharacter.age) characterToPatch.age = newCharacter.age
+    if (newCharacter.weight) characterToPatch.weight = newCharacter.weight
+    if (newCharacter.story) characterToPatch.story = newCharacter.story
+    if (newCharacter.movies) characterToPatch.movies = newCharacter.movies
+    characterToPatch.updatedAt = Date.now()
+    return await characterToPatch.save()
+}
+
 module.exports = service
