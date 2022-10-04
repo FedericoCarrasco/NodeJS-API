@@ -11,13 +11,13 @@ db.once('open', () => console.log('Connected to the database'))
 
 app.use(express.json())
 
-const characterController = require('./controllers/CharacterController')
+const characterController = require('./app/controllers/CharacterController')
 app.use('/characters', characterController)
 
-const genreController = require('./controllers/GenreController')
+const genreController = require('./app/controllers/GenreController')
 app.use('/genres', genreController)
 
-const movieController = require('./controllers/MovieController')
+const movieController = require('./app/controllers/MovieController')
 app.use('/movies', movieController)
 
 app.listen(3000, () => console.log('Server started'))

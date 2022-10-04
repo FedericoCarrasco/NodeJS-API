@@ -17,7 +17,7 @@ controller.patch('/:id', (req, res) => {
     
 })
 
-controller.update('/:id', (req, res) => {
+controller.put('/:id', (req, res) => {
     
 })
 

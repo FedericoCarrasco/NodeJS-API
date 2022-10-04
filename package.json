@@ -2,9 +2,9 @@
   "name": "nodejs-api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app/index.js",
   "scripts": {
-    "devStart": "nodemon server.js"
+    "devStart": "nodemon index.js"
   },
   "repository": {
     "type": "git",
