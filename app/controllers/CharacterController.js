@@ -20,8 +20,13 @@ controller.get('/', async (req, res) => {
     }
 })
 
-controller.get('/:id', (req, res) => {
-    
+controller.get('/:id', async (req, res) => {
+    try {
+        character = await service.getById(req.params.id)
+        res.json(character)
+    } catch (error) {
+        res.json(error.message)
+    }
 })
 
 controller.patch('/:id', (req, res) => {

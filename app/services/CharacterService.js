@@ -27,4 +27,8 @@ service.getAll = async (queryList) => {
     return characters
 }
 
+service.getById = async (id) => {
+    return await Character.findById(id, 'name image age weight story')
+}
+
 module.exports = service
