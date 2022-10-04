@@ -40,8 +40,13 @@ controller.patch('/:id', async (req, res) => {
     }
 })
 
-controller.put('/:id', (req, res) => {
-    
+controller.put('/:id', async (req, res) => {
+    try {
+        genre = await service.put(req.params.id, req.body)
+        res.json(genre)
+    } catch (error) {
+        res.json(error.message)
+    }
 })
 
 module.exports = controller
