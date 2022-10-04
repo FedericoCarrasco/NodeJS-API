@@ -14,4 +14,11 @@ service.create = async (genre) => {
     }
 }
 
+service.getAll = async (queryList) => {
+    query = {}
+    if (queryList.name) query.name = queryList.name
+    list = await Genre.find(query)
+    return list
+}
+
 module.exports = service

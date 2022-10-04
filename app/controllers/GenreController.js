@@ -13,8 +13,13 @@ controller.post('/', async (req, res) => {
     }
 })
 
-controller.get('/', (req, res) => {
-    
+controller.get('/', async (req, res) => {
+    try {
+        genres = await service.getAll(req.query)
+        res.status(200).json(genres)
+    } catch (error) {
+        res.json(error)
+    }
 })
 
 controller.get('/:id', (req, res) => {
