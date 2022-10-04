@@ -20,7 +20,7 @@ service.getAll = async (queryList) => {
 }
 
 service.getById = async (id) => {
-    return await Genre.findById(id)
+    return await Genre.findById(id, 'name image')
 }
 
 service.patch = async (id, newGenre) => {
