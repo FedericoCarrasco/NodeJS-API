@@ -1,4 +1,3 @@
-const { query } = require('express')
 const Character = require('../models/Character')
 const service = {}
 
@@ -57,8 +56,7 @@ service.put = async (id, newCharacter) => {
 }
 
 service.delete = async (id) => {
-    const characterToDelete = await Character.findByIdAndRemove(id)
-    return
+    return await Character.findByIdAndRemove(id)
 }
 
 module.exports = service
