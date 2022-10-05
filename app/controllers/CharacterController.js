@@ -38,8 +38,13 @@ controller.patch('/:id', async (req, res) => {
     }
 })
 
-controller.put('/:id', (req, res) => {
-    
+controller.put('/:id', async (req, res) => {
+    try {
+        character = await service.put(req.params.id, req.body)
+        res.json(character)
+    } catch (error) {
+        res.json(error.message)
+    }
 })
 
 controller.delete('/:id', (req, res) => {

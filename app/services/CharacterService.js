@@ -43,4 +43,16 @@ service.patch = async (id, newCharacter) => {
     return await characterToPatch.save()
 }
 
+service.put = async (id, newCharacter) => {
+    const characterToPatch = await Character.findById(id)
+    characterToPatch.name = newCharacter.name
+    characterToPatch.image = newCharacter.image
+    characterToPatch.age = newCharacter.age
+    characterToPatch.weight = newCharacter.weight
+    characterToPatch.story = newCharacter.story
+    characterToPatch.movies = newCharacter.movies
+    characterToPatch.updatedAt = Date.now()
+    return await characterToPatch.save()
+}
+
 module.exports = service
