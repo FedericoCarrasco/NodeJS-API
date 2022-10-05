@@ -28,7 +28,8 @@ service.getAll = async (queryList) => {
 }
 
 service.getById = async (id) => {
-    return await Character.findById(id, 'name image age weight story')
+    const character = await Character.findById(id, 'name image age weight story')
+    return character
 }
 
 service.patch = async (id, newCharacter) => {
@@ -53,6 +54,11 @@ service.put = async (id, newCharacter) => {
     characterToPatch.movies = newCharacter.movies
     characterToPatch.updatedAt = Date.now()
     return await characterToPatch.save()
+}
+
+service.delete = async (id) => {
+    const characterToDelete = await Character.findByIdAndRemove(id)
+    return
 }
 
 module.exports = service

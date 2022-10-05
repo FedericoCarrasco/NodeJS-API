@@ -47,8 +47,13 @@ controller.put('/:id', async (req, res) => {
     }
 })
 
-controller.delete('/:id', (req, res) => {
-    
+controller.delete('/:id', async (req, res) => {
+    try {
+        await service.delete(req.params.id)
+        res.status(204).send()
+    } catch (error) {
+        res.json(error.message)
+    }
 })
 
 module.exports = controller
